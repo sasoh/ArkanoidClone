@@ -10,5 +10,16 @@
 #define __Arkanoid__BallObject__
 
 #include <iostream>
+#include "GameObject.h"
+
+class BallObject : public GameObject {
+public:
+    virtual void Update(float delta);
+    virtual void Render();
+    
+private:
+    // physics
+    struct Vector direction;
+};
 
 #endif /* defined(__Arkanoid__BallObject__) */

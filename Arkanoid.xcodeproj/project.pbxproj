@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2D658169184FA2710069CF68 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658168184FA2710069CF68 /* main.cpp */; };
 		2D65816B184FA2710069CF68 /* Arkanoid.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D65816A184FA2710069CF68 /* Arkanoid.1 */; };
+		2D65817D184FA3100069CF68 /* Common.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D65817B184FA3100069CF68 /* Common.cpp */; };
+		2D658180184FA42F0069CF68 /* BallObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D65817E184FA42F0069CF68 /* BallObject.cpp */; };
+		2D658183184FA4AA0069CF68 /* TargetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658181184FA4AA0069CF68 /* TargetObject.cpp */; };
+		2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658185184FA72A0069CF68 /* PaddleObject.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +32,14 @@
 		2D658165184FA2710069CF68 /* Arkanoid */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Arkanoid; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D658168184FA2710069CF68 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2D65816A184FA2710069CF68 /* Arkanoid.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Arkanoid.1; sourceTree = "<group>"; };
+		2D658178184FA2C00069CF68 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = src/GameObject.h; sourceTree = "<group>"; };
+		2D65817B184FA3100069CF68 /* Common.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Common.cpp; path = src/Common.cpp; sourceTree = "<group>"; };
+		2D65817E184FA42F0069CF68 /* BallObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BallObject.cpp; path = src/BallObject.cpp; sourceTree = "<group>"; };
+		2D65817F184FA42F0069CF68 /* BallObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BallObject.h; path = src/BallObject.h; sourceTree = "<group>"; };
+		2D658181184FA4AA0069CF68 /* TargetObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TargetObject.cpp; path = src/TargetObject.cpp; sourceTree = "<group>"; };
+		2D658182184FA4AA0069CF68 /* TargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetObject.h; path = src/TargetObject.h; sourceTree = "<group>"; };
+		2D658185184FA72A0069CF68 /* PaddleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PaddleObject.cpp; path = src/PaddleObject.cpp; sourceTree = "<group>"; };
+		2D658186184FA72A0069CF68 /* PaddleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaddleObject.h; path = src/PaddleObject.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +72,74 @@
 		2D658167184FA2710069CF68 /* Arkanoid */ = {
 			isa = PBXGroup;
 			children = (
+				2D65817A184FA2F30069CF68 /* Common */,
+				2D658172184FA2840069CF68 /* Game Objects */,
+				2D658171184FA27E0069CF68 /* Board */,
 				2D658168184FA2710069CF68 /* main.cpp */,
 				2D65816A184FA2710069CF68 /* Arkanoid.1 */,
 			);
 			path = Arkanoid;
+			sourceTree = "<group>";
+		};
+		2D658171184FA27E0069CF68 /* Board */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Board;
+			sourceTree = "<group>";
+		};
+		2D658172184FA2840069CF68 /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+				2D658173184FA28A0069CF68 /* GameObject */,
+				2D658176184FA2A40069CF68 /* BallObject */,
+				2D658175184FA2980069CF68 /* TargetObject */,
+				2D658174184FA2930069CF68 /* PaddleObject */,
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
+		2D658173184FA28A0069CF68 /* GameObject */ = {
+			isa = PBXGroup;
+			children = (
+				2D658178184FA2C00069CF68 /* GameObject.h */,
+			);
+			name = GameObject;
+			sourceTree = "<group>";
+		};
+		2D658174184FA2930069CF68 /* PaddleObject */ = {
+			isa = PBXGroup;
+			children = (
+				2D658186184FA72A0069CF68 /* PaddleObject.h */,
+				2D658185184FA72A0069CF68 /* PaddleObject.cpp */,
+			);
+			name = PaddleObject;
+			sourceTree = "<group>";
+		};
+		2D658175184FA2980069CF68 /* TargetObject */ = {
+			isa = PBXGroup;
+			children = (
+				2D658182184FA4AA0069CF68 /* TargetObject.h */,
+				2D658181184FA4AA0069CF68 /* TargetObject.cpp */,
+			);
+			name = TargetObject;
+			sourceTree = "<group>";
+		};
+		2D658176184FA2A40069CF68 /* BallObject */ = {
+			isa = PBXGroup;
+			children = (
+				2D65817F184FA42F0069CF68 /* BallObject.h */,
+				2D65817E184FA42F0069CF68 /* BallObject.cpp */,
+			);
+			name = BallObject;
+			sourceTree = "<group>";
+		};
+		2D65817A184FA2F30069CF68 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2D65817B184FA3100069CF68 /* Common.cpp */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,7 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */,
 				2D658169184FA2710069CF68 /* main.cpp in Sources */,
+				2D658180184FA42F0069CF68 /* BallObject.cpp in Sources */,
+				2D65817D184FA3100069CF68 /* Common.cpp in Sources */,
+				2D658183184FA4AA0069CF68 /* TargetObject.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

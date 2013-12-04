@@ -6,4 +6,9 @@
 //  Copyright (c) 2013 -. All rights reserved.
 //
 
-#include "Common.h"
+#include <iostream>
+
+struct Vector {
+    float x;
+    float y;
+};

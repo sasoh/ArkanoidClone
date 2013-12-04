@@ -10,5 +10,18 @@
 #define __Arkanoid__GameObject__
 
 #include <iostream>
+#include "Common.cpp"
+
+class GameObject {
+public:
+    virtual void Update(float delta) = 0;
+    virtual void Render() = 0;
+    
+    // publicly accessible
+    struct Vector position;
+private:    
+    // maybe something graphical
+    
+};
 
 #endif /* defined(__Arkanoid__GameObject__) */

@@ -7,3 +7,17 @@
 //
 
 #include "BallObject.h"
+
+void BallObject::Update(float delta) {
+
+    // update ball position according to direction
+    position.x += direction.x * delta;
+    position.y += direction.y * delta;
+    
+}
+
+void BallObject::Render() {
+
+    // graphcis code
+    
+}

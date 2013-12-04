@@ -10,5 +10,16 @@
 #define __Arkanoid__PaddleObject__
 
 #include <iostream>
+#include "GameObject.h"
+
+class PaddleObject : public GameObject {
+public:
+    virtual void Update(float delta);
+    virtual void Render();
+    
+    Vector direction;
+private:
+    
+};
 
 #endif /* defined(__Arkanoid__PaddleObject__) */

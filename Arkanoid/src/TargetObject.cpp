@@ -7,3 +7,15 @@
 //
 
 #include "TargetObject.h"
+
+void TargetObject::Update(float delta) {
+
+    // nothing yet)
+    
+}
+
+void TargetObject::Render() {
+    
+    // graphcis code
+    
+}

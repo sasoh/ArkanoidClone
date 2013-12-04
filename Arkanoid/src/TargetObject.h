@@ -10,5 +10,17 @@
 #define __Arkanoid__TargetObject__
 
 #include <iostream>
+#include "GameObject.h"
+
+class TargetObject : public GameObject {
+public:
+    virtual void Update(float delta);
+    virtual void Render();
+    
+    int price;
+private:
+    // ???
+    
+};
 
 #endif /* defined(__Arkanoid__TargetObject__) */
