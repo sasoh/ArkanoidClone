@@ -16,9 +16,10 @@ class GameObject {
 public:
     virtual void Update(float delta) = 0;
     virtual void Render() = 0;
+    virtual ~GameObject() {}
     
     // publicly accessible
-    struct Vector position;
+    struct Rectangle frame;
 private:    
     // maybe something graphical
     

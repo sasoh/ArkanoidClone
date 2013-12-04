@@ -14,6 +14,8 @@
 
 class BallObject : public GameObject {
 public:
+    BallObject(struct Rectangle &rect);
+    virtual ~BallObject();
     virtual void Update(float delta);
     virtual void Render();
     

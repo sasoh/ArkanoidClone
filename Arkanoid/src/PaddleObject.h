@@ -14,6 +14,7 @@
 
 class PaddleObject : public GameObject {
 public:
+    virtual ~PaddleObject();
     virtual void Update(float delta);
     virtual void Render();
     

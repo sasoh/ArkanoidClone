@@ -13,6 +13,7 @@
 		2D658180184FA42F0069CF68 /* BallObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D65817E184FA42F0069CF68 /* BallObject.cpp */; };
 		2D658183184FA4AA0069CF68 /* TargetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658181184FA4AA0069CF68 /* TargetObject.cpp */; };
 		2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658185184FA72A0069CF68 /* PaddleObject.cpp */; };
+		2D65818A184FA8F10069CF68 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658188184FA8F10069CF68 /* Game.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +41,8 @@
 		2D658182184FA4AA0069CF68 /* TargetObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TargetObject.h; path = src/TargetObject.h; sourceTree = "<group>"; };
 		2D658185184FA72A0069CF68 /* PaddleObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PaddleObject.cpp; path = src/PaddleObject.cpp; sourceTree = "<group>"; };
 		2D658186184FA72A0069CF68 /* PaddleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaddleObject.h; path = src/PaddleObject.h; sourceTree = "<group>"; };
+		2D658188184FA8F10069CF68 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = src/Game.cpp; sourceTree = "<group>"; };
+		2D658189184FA8F10069CF68 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = src/Game.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,18 +77,20 @@
 			children = (
 				2D65817A184FA2F30069CF68 /* Common */,
 				2D658172184FA2840069CF68 /* Game Objects */,
-				2D658171184FA27E0069CF68 /* Board */,
+				2D658171184FA27E0069CF68 /* Game */,
 				2D658168184FA2710069CF68 /* main.cpp */,
 				2D65816A184FA2710069CF68 /* Arkanoid.1 */,
 			);
 			path = Arkanoid;
 			sourceTree = "<group>";
 		};
-		2D658171184FA27E0069CF68 /* Board */ = {
+		2D658171184FA27E0069CF68 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				2D658189184FA8F10069CF68 /* Game.h */,
+				2D658188184FA8F10069CF68 /* Game.cpp */,
 			);
-			name = Board;
+			name = Game;
 			sourceTree = "<group>";
 		};
 		2D658172184FA2840069CF68 /* Game Objects */ = {
@@ -196,8 +201,9 @@
 				2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */,
 				2D658169184FA2710069CF68 /* main.cpp in Sources */,
 				2D658180184FA42F0069CF68 /* BallObject.cpp in Sources */,
-				2D65817D184FA3100069CF68 /* Common.cpp in Sources */,
+				2D65818A184FA8F10069CF68 /* Game.cpp in Sources */,
 				2D658183184FA4AA0069CF68 /* TargetObject.cpp in Sources */,
+				2D65817D184FA3100069CF68 /* Common.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +311,7 @@
 				2D658170184FA2710069CF68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

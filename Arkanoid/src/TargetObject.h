@@ -14,6 +14,8 @@
 
 class TargetObject : public GameObject {
 public:
+    TargetObject(struct Rectangle &rect, int targetPrice);
+    virtual ~TargetObject();
     virtual void Update(float delta);
     virtual void Render();
     

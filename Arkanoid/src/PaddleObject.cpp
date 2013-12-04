@@ -8,11 +8,15 @@
 
 #include "PaddleObject.h"
 
+PaddleObject::~PaddleObject() {
+    
+}
+
 void PaddleObject::Update(float delta) {
     
     // update ball position according to direction
-    position.x += direction.x * delta;
-    position.y += direction.y * delta;
+    frame.left += direction.x * delta;
+    frame.top += direction.y * delta;
     
 }
 

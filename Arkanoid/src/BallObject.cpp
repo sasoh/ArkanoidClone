@@ -8,12 +8,21 @@
 
 #include "BallObject.h"
 
+BallObject::BallObject(struct Rectangle &rect) {
+    
+    frame = rect;
+    
+}
+
+BallObject::~BallObject() {
+    
+}
+
 void BallObject::Update(float delta) {
 
     // update ball position according to direction
-    position.x += direction.x * delta;
-    position.y += direction.y * delta;
-    
+    frame.left += direction.x * delta;
+    frame.top += direction.y * delta;
 }
 
 void BallObject::Render() {

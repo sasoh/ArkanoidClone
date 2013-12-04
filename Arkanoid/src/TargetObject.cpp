@@ -8,14 +8,25 @@
 
 #include "TargetObject.h"
 
+TargetObject::TargetObject(struct Rectangle &rect, int targetPrice): price(targetPrice) {
+    
+    frame = rect;
+    
+}
+
+TargetObject::~TargetObject() {
+    
+}
+
 void TargetObject::Update(float delta) {
 
-    // nothing yet)
+    // nothing yet
     
 }
 
 void TargetObject::Render() {
     
     // graphcis code
+    std::cout << "Render target at [x:" << frame.left << "; y:" << frame.top << "][w:" << frame.right << "; h:" << frame.bottom << "]" << std::endl;
     
 }
