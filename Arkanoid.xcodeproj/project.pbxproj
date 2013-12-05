@@ -14,6 +14,16 @@
 		2D658183184FA4AA0069CF68 /* TargetObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658181184FA4AA0069CF68 /* TargetObject.cpp */; };
 		2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658185184FA72A0069CF68 /* PaddleObject.cpp */; };
 		2D65818A184FA8F10069CF68 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D658188184FA8F10069CF68 /* Game.cpp */; };
+		2D7D0F201851154200F1F0E4 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7D0F1B1851154200F1F0E4 /* sfml-audio.framework */; };
+		2D7D0F211851154200F1F0E4 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7D0F1C1851154200F1F0E4 /* sfml-graphics.framework */; };
+		2D7D0F221851154200F1F0E4 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7D0F1D1851154200F1F0E4 /* sfml-system.framework */; };
+		2D7D0F231851154200F1F0E4 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7D0F1E1851154200F1F0E4 /* sfml-window.framework */; };
+		2D7D0F241851154200F1F0E4 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D7D0F1F1851154200F1F0E4 /* SFML.framework */; };
+		2D7D0F2918511A5600F1F0E4 /* SpriteObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D0F2718511A5600F1F0E4 /* SpriteObject.cpp */; };
+		2D7D0F391851217700F1F0E4 /* ball_30x30.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7D0F3118511C0800F1F0E4 /* ball_30x30.png */; };
+		2D7D0F3A1851217900F1F0E4 /* background.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7D0F3018511C0800F1F0E4 /* background.png */; };
+		2D7D0F3B1851217B00F1F0E4 /* paddle_100x15.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7D0F3218511C0800F1F0E4 /* paddle_100x15.png */; };
+		2D7D0F3C1851217D00F1F0E4 /* target_80x15.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2D7D0F3318511C0800F1F0E4 /* target_80x15.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +36,19 @@
 				2D65816B184FA2710069CF68 /* Arkanoid.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		2D7D0F381851216B00F1F0E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				2D7D0F391851217700F1F0E4 /* ball_30x30.png in CopyFiles */,
+				2D7D0F3A1851217900F1F0E4 /* background.png in CopyFiles */,
+				2D7D0F3B1851217B00F1F0E4 /* paddle_100x15.png in CopyFiles */,
+				2D7D0F3C1851217D00F1F0E4 /* target_80x15.png in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -43,6 +66,17 @@
 		2D658186184FA72A0069CF68 /* PaddleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaddleObject.h; path = src/PaddleObject.h; sourceTree = "<group>"; };
 		2D658188184FA8F10069CF68 /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Game.cpp; path = src/Game.cpp; sourceTree = "<group>"; };
 		2D658189184FA8F10069CF68 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = src/Game.h; sourceTree = "<group>"; };
+		2D7D0F1B1851154200F1F0E4 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "/Library/Frameworks/sfml-audio.framework"; sourceTree = "<absolute>"; };
+		2D7D0F1C1851154200F1F0E4 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "/Library/Frameworks/sfml-graphics.framework"; sourceTree = "<absolute>"; };
+		2D7D0F1D1851154200F1F0E4 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "/Library/Frameworks/sfml-system.framework"; sourceTree = "<absolute>"; };
+		2D7D0F1E1851154200F1F0E4 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "/Library/Frameworks/sfml-window.framework"; sourceTree = "<absolute>"; };
+		2D7D0F1F1851154200F1F0E4 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = /Library/Frameworks/SFML.framework; sourceTree = "<absolute>"; };
+		2D7D0F2718511A5600F1F0E4 /* SpriteObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = SpriteObject.cpp; path = src/SpriteObject.cpp; sourceTree = "<group>"; };
+		2D7D0F2818511A5600F1F0E4 /* SpriteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteObject.h; path = src/SpriteObject.h; sourceTree = "<group>"; };
+		2D7D0F3018511C0800F1F0E4 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		2D7D0F3118511C0800F1F0E4 /* ball_30x30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball_30x30.png; sourceTree = "<group>"; };
+		2D7D0F3218511C0800F1F0E4 /* paddle_100x15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle_100x15.png; sourceTree = "<group>"; };
+		2D7D0F3318511C0800F1F0E4 /* target_80x15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target_80x15.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +84,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7D0F201851154200F1F0E4 /* sfml-audio.framework in Frameworks */,
+				2D7D0F211851154200F1F0E4 /* sfml-graphics.framework in Frameworks */,
+				2D7D0F221851154200F1F0E4 /* sfml-system.framework in Frameworks */,
+				2D7D0F231851154200F1F0E4 /* sfml-window.framework in Frameworks */,
+				2D7D0F241851154200F1F0E4 /* SFML.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				2D658167184FA2710069CF68 /* Arkanoid */,
+				2D7D0F251851154600F1F0E4 /* Frameworks */,
 				2D658166184FA2710069CF68 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -75,6 +115,7 @@
 		2D658167184FA2710069CF68 /* Arkanoid */ = {
 			isa = PBXGroup;
 			children = (
+				2D7D0F2F18511C0800F1F0E4 /* images */,
 				2D65817A184FA2F30069CF68 /* Common */,
 				2D658172184FA2840069CF68 /* Game Objects */,
 				2D658171184FA27E0069CF68 /* Game */,
@@ -97,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				2D658173184FA28A0069CF68 /* GameObject */,
+				2D7D0F2618511A4400F1F0E4 /* SpriteObject */,
 				2D658176184FA2A40069CF68 /* BallObject */,
 				2D658175184FA2980069CF68 /* TargetObject */,
 				2D658174184FA2930069CF68 /* PaddleObject */,
@@ -147,6 +189,38 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		2D7D0F251851154600F1F0E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2D7D0F1B1851154200F1F0E4 /* sfml-audio.framework */,
+				2D7D0F1C1851154200F1F0E4 /* sfml-graphics.framework */,
+				2D7D0F1D1851154200F1F0E4 /* sfml-system.framework */,
+				2D7D0F1E1851154200F1F0E4 /* sfml-window.framework */,
+				2D7D0F1F1851154200F1F0E4 /* SFML.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2D7D0F2618511A4400F1F0E4 /* SpriteObject */ = {
+			isa = PBXGroup;
+			children = (
+				2D7D0F2818511A5600F1F0E4 /* SpriteObject.h */,
+				2D7D0F2718511A5600F1F0E4 /* SpriteObject.cpp */,
+			);
+			name = SpriteObject;
+			sourceTree = "<group>";
+		};
+		2D7D0F2F18511C0800F1F0E4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2D7D0F3118511C0800F1F0E4 /* ball_30x30.png */,
+				2D7D0F3018511C0800F1F0E4 /* background.png */,
+				2D7D0F3218511C0800F1F0E4 /* paddle_100x15.png */,
+				2D7D0F3318511C0800F1F0E4 /* target_80x15.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -157,6 +231,7 @@
 				2D658161184FA2710069CF68 /* Sources */,
 				2D658162184FA2710069CF68 /* Frameworks */,
 				2D658163184FA2710069CF68 /* CopyFiles */,
+				2D7D0F381851216B00F1F0E4 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -198,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7D0F2918511A5600F1F0E4 /* SpriteObject.cpp in Sources */,
 				2D658187184FA72A0069CF68 /* PaddleObject.cpp in Sources */,
 				2D658169184FA2710069CF68 /* main.cpp in Sources */,
 				2D658180184FA42F0069CF68 /* BallObject.cpp in Sources */,
@@ -281,6 +357,10 @@
 		2D65816F184FA2710069CF68 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -288,6 +368,10 @@
 		2D658170184FA2710069CF68 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

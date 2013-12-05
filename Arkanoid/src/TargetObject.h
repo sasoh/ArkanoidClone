@@ -14,14 +14,13 @@
 
 class TargetObject : public GameObject {
 public:
-    TargetObject(struct Rectangle &rect, int targetPrice);
+    TargetObject(struct Rectangle &rect, int targetPrice, char *filename);
     virtual ~TargetObject();
     virtual void Update(float delta);
-    virtual void Render();
+    virtual void Render(sf::RenderWindow *targetWindow);
     
     int price;
 private:
-    // ???
     
 };
 

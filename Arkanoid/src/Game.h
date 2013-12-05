@@ -13,20 +13,23 @@
 #include <vector>
 #include <time.h>
 #include "GameObject.h"
+#include "SpriteObject.h"
 #include "BallObject.h"
 #include "TargetObject.h"
 #include "PaddleObject.h"
+#include <SFML/Graphics.hpp>
 
 class Game {
 public:
     void Start();
     
 private:
-    void InitializeGameObjects();
-    void InitializeBoard();
-    void InitializeTargets();
-    void InitializeBall();
-    void InitializePaddle();
+    bool InitializeGameObjects();
+    bool InitializeSFML();
+    bool InitializeBoard();
+    bool InitializeTargets();
+    bool InitializeBall();
+    bool InitializePaddle();
     void GameLoop();
     void Shutdown();
     void HandleInput();
@@ -35,6 +38,7 @@ private:
     bool isRunning;
     std::vector<GameObject *> objects;
     std::vector<GameObject *> targets;
+    sf::RenderWindow *window;
 };
 
 #endif /* defined(__Arkanoid__Game__) */

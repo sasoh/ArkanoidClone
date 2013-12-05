@@ -14,9 +14,10 @@
 
 class PaddleObject : public GameObject {
 public:
+    PaddleObject(struct Rectangle &rect, char *filename);
     virtual ~PaddleObject();
     virtual void Update(float delta);
-    virtual void Render();
+    virtual void Render(sf::RenderWindow *targetWindow);
     
     Vector direction;
 private:

@@ -11,27 +11,66 @@
 void Game::Start() {
     
     std::cout << __func__ << std::endl;
-    InitializeGameObjects();
-    GameLoop();
+    if (InitializeGameObjects() == true) {
+        GameLoop();
+    }
     
 }
 
-void Game::InitializeGameObjects() {
+bool Game::InitializeGameObjects() {
     
-    std::cout << __func__ << std::endl;
-    InitializeBoard();
-    InitializeTargets();
-    InitializePaddle();
-    InitializeBall();
+    if (InitializeSFML() == false) {
+        return false;
+    }
+    if (InitializeBoard() == false) {
+        return false;
+    }
+    if (InitializeTargets() == false) {
+        return false;
+    }
+    if (InitializePaddle() == false) {
+        return false;
+    }
+    if (InitializeBall() == false) {
+        return false;
+    }
+    
+    return true;
     
 }
 
-void Game::InitializeBoard() {
+bool Game::InitializeSFML() {
+   
+    bool result = true;
+    
+    window = new sf::RenderWindow(sf::VideoMode(800, 600), "Arkanoid clone");
+    result = window->isOpen();
+    
+    return result;
     
 }
 
-void Game::InitializeTargets() {
+bool Game::InitializeBoard() {
     
+    bool result = true;
+    
+    struct Rectangle frame;
+    frame.top = 0.0f;
+    frame.left = 0.0f;
+    frame.bottom = 600.0;
+    frame.right = 800.0;
+    
+    char filename[] = "background.png";
+    SpriteObject *boardObject = new SpriteObject(frame, filename);
+    objects.push_back(boardObject);
+    
+    return result;
+    
+}
+
+bool Game::InitializeTargets() {
+    
+    bool result = true;
     struct Vector offset;
     offset.x = 10;
     offset.y = 10;
@@ -47,19 +86,25 @@ void Game::InitializeTargets() {
         frame.bottom = targetHeight;
         frame.right = targetWidth;
         
-        TargetObject *target = new TargetObject(frame, 5);
+        char filename[] = "../images/target_80x15.png";
+        TargetObject *target = new TargetObject(frame, 5, filename);
         objects.push_back(target);
     }
+    return result;
     
 }
 
-void Game::InitializePaddle() {
+bool Game::InitializePaddle() {
     
+    bool result = true;
     
+    return result;
     
 }
 
-void Game::InitializeBall() {
+bool Game::InitializeBall() {
+    
+    bool result = true;
     
     struct Rectangle frame;
     // random value?
@@ -70,8 +115,11 @@ void Game::InitializeBall() {
     
     // direction? towards center of paddle?
     
-    BallObject *ball = new BallObject(frame);
+    char filename[] = "../images/ball_30X30.png";
+    BallObject *ball = new BallObject(frame, filename);
     objects.push_back(ball);
+    
+    return result;
     
 }
 
@@ -84,11 +132,26 @@ void Game::GameLoop() {
         clock_t currentTime = clock();
         double delta = difftime(currentTime, lastTime) / CLOCKS_PER_SEC;
         lastTime = currentTime;
-    
+        
+        // capture window events
+        sf::Event event;
+        while (window->pollEvent(event)) {
+            // Close window : exit
+            if (event.type == sf::Event::Closed) {
+                window->close();
+                isRunning = false;
+            }
+        }
+        
+        
+        window->clear();
+        
         // systems update
         HandleInput();
         Update(delta);
         Render();
+ 
+        window->display();
     }
     
     Shutdown();
@@ -109,12 +172,15 @@ void Game::Shutdown() {
     // targets is a convenience vector, nothing to release from there
     targets.clear();
     
+    // destroy SFML window
+    delete window;
+    
 }
 
 void Game::HandleInput() {
     
     // stop loop
-    isRunning = false;
+//    isRunning = false;
 
 }
 
@@ -131,7 +197,7 @@ void Game::Render() {
     
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        (*iterator)->Render();
+        (*iterator)->Render(window);
     }
 
 }

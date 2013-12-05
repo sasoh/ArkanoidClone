@@ -8,6 +8,10 @@
 
 #include "PaddleObject.h"
 
+PaddleObject::PaddleObject(struct Rectangle &rect, char *filename) {
+    
+}
+
 PaddleObject::~PaddleObject() {
     
 }
@@ -20,7 +24,7 @@ void PaddleObject::Update(float delta) {
     
 }
 
-void PaddleObject::Render() {
+void PaddleObject::Render(sf::RenderWindow *targetWindow) {
     
     // graphcis code
     

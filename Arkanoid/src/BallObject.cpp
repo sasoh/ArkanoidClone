@@ -8,9 +8,11 @@
 
 #include "BallObject.h"
 
-BallObject::BallObject(struct Rectangle &rect) {
+BallObject::BallObject(struct Rectangle &rect, char *filename) {
     
     frame = rect;
+    
+    
     
 }
 
@@ -25,7 +27,7 @@ void BallObject::Update(float delta) {
     frame.top += direction.y * delta;
 }
 
-void BallObject::Render() {
+void BallObject::Render(sf::RenderWindow *targetWindow) {
 
     // graphcis code
     

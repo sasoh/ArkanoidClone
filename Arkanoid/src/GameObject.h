@@ -11,18 +11,17 @@
 
 #include <iostream>
 #include "Common.cpp"
+#include <SFML/Graphics.hpp>
 
 class GameObject {
 public:
     virtual void Update(float delta) = 0;
-    virtual void Render() = 0;
+    virtual void Render(sf::RenderWindow *targetWindow) = 0;
     virtual ~GameObject() {}
     
-    // publicly accessible
     struct Rectangle frame;
-private:    
-    // maybe something graphical
-    
+    sf::Sprite *sprite;
+    sf::Texture *texture;
 };
 
 #endif /* defined(__Arkanoid__GameObject__) */

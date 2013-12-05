@@ -14,10 +14,10 @@
 
 class BallObject : public GameObject {
 public:
-    BallObject(struct Rectangle &rect);
+    BallObject(struct Rectangle &rect, char *filename);
     virtual ~BallObject();
     virtual void Update(float delta);
-    virtual void Render();
+    virtual void Render(sf::RenderWindow *targetWindow);
     
 private:
     // physics

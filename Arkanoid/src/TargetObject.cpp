@@ -8,7 +8,7 @@
 
 #include "TargetObject.h"
 
-TargetObject::TargetObject(struct Rectangle &rect, int targetPrice): price(targetPrice) {
+TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice) {
     
     frame = rect;
     
@@ -24,9 +24,8 @@ void TargetObject::Update(float delta) {
     
 }
 
-void TargetObject::Render() {
+void TargetObject::Render(sf::RenderWindow *targetWindow) {
     
     // graphcis code
-    std::cout << "Render target at [x:" << frame.left << "; y:" << frame.top << "][w:" << frame.right << "; h:" << frame.bottom << "]" << std::endl;
     
 }
