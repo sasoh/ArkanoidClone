@@ -10,18 +10,16 @@
 #define __Arkanoid__PaddleObject__
 
 #include <iostream>
-#include "GameObject.h"
+#include "SpriteObject.h"
 
-class PaddleObject : public GameObject {
+class PaddleObject : public SpriteObject {
 public:
     PaddleObject(struct Rectangle &rect, char *filename);
     virtual ~PaddleObject();
     virtual void Update(float delta);
     virtual void Render(sf::RenderWindow *targetWindow);
     
-    Vector direction;
-private:
-    
+    struct Vector direction;
 };
 
 #endif /* defined(__Arkanoid__PaddleObject__) */

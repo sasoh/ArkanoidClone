@@ -8,9 +8,7 @@
 
 #include "TargetObject.h"
 
-TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice) {
-    
-    frame = rect;
+TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice), SpriteObject(rect, filename) {
     
 }
 
@@ -26,6 +24,6 @@ void TargetObject::Update(float delta) {
 
 void TargetObject::Render(sf::RenderWindow *targetWindow) {
     
-    // graphcis code
+    SpriteObject::Render(targetWindow);
     
 }

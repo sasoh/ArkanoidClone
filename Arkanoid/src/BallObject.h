@@ -10,9 +10,9 @@
 #define __Arkanoid__BallObject__
 
 #include <iostream>
-#include "GameObject.h"
+#include "SpriteObject.h"
 
-class BallObject : public GameObject {
+class BallObject : public SpriteObject {
 public:
     BallObject(struct Rectangle &rect, char *filename);
     virtual ~BallObject();

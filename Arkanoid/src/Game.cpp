@@ -10,7 +10,6 @@
 
 void Game::Start() {
     
-    std::cout << __func__ << std::endl;
     if (InitializeGameObjects() == true) {
         GameLoop();
     }
@@ -75,8 +74,8 @@ bool Game::InitializeTargets() {
     offset.x = 10;
     offset.y = 10;
     
-    float targetHeight = 10.0f;
-    float targetWidth = 50.0f;
+    float targetHeight = 15.0f;
+    float targetWidth = 80.0f;
     
     for (int i = 0; i < 5; ++i) {
         // prepare frame for object
@@ -86,7 +85,7 @@ bool Game::InitializeTargets() {
         frame.bottom = targetHeight;
         frame.right = targetWidth;
         
-        char filename[] = "../images/target_80x15.png";
+        char filename[] = "target_80x15.png";
         TargetObject *target = new TargetObject(frame, 5, filename);
         objects.push_back(target);
     }
@@ -98,6 +97,16 @@ bool Game::InitializePaddle() {
     
     bool result = true;
     
+    struct Rectangle frame;
+    frame.top = 500.0f;
+    frame.left = 300.0f;
+    frame.bottom = 15.0f;
+    frame.right = 100.0f;
+    
+    char filename[] = "paddle_100x15.png";
+    PaddleObject *paddleObject = new PaddleObject(frame, filename);
+    objects.push_back(paddleObject);
+    
     return result;
     
 }
@@ -108,14 +117,14 @@ bool Game::InitializeBall() {
     
     struct Rectangle frame;
     // random value?
-    frame.top = 100.0f;
+    frame.top = 400.0f;
     frame.left = 100.0f;
-    frame.bottom = 10.0f;
-    frame.right = 10.0f;
+    frame.bottom = 30.0f;
+    frame.right = 30.0f;
     
     // direction? towards center of paddle?
     
-    char filename[] = "../images/ball_30X30.png";
+    char filename[] = "ball_30x30.png";
     BallObject *ball = new BallObject(frame, filename);
     objects.push_back(ball);
     
@@ -150,7 +159,7 @@ void Game::GameLoop() {
         HandleInput();
         Update(delta);
         Render();
- 
+        
         window->display();
     }
     
@@ -161,7 +170,6 @@ void Game::GameLoop() {
 void Game::Shutdown() {
     
     // clear up
-    std::cout << __func__ << std::endl;
     
     // clear all objects from memory
     std::vector<GameObject *>::iterator iterator;

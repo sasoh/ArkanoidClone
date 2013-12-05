@@ -8,7 +8,7 @@
 
 #include "PaddleObject.h"
 
-PaddleObject::PaddleObject(struct Rectangle &rect, char *filename) {
+PaddleObject::PaddleObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
 }
 
@@ -22,10 +22,13 @@ void PaddleObject::Update(float delta) {
     frame.left += direction.x * delta;
     frame.top += direction.y * delta;
     
+    // reposition
+    sprite->setPosition(frame.left, frame.top);
+    
 }
 
 void PaddleObject::Render(sf::RenderWindow *targetWindow) {
     
-    // graphcis code
+    SpriteObject::Render(targetWindow);
     
 }

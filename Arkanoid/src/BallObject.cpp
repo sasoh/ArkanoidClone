@@ -8,11 +8,10 @@
 
 #include "BallObject.h"
 
-BallObject::BallObject(struct Rectangle &rect, char *filename) {
+BallObject::BallObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
-    frame = rect;
-    
-    
+    direction.x = 0.0;
+    direction.y = 0.0;
     
 }
 
@@ -25,10 +24,14 @@ void BallObject::Update(float delta) {
     // update ball position according to direction
     frame.left += direction.x * delta;
     frame.top += direction.y * delta;
+    
+    // reposition
+    sprite->setPosition(frame.left, frame.top);
+    
 }
 
 void BallObject::Render(sf::RenderWindow *targetWindow) {
 
-    // graphcis code
+    SpriteObject::Render(targetWindow);
     
 }
