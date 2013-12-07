@@ -136,14 +136,21 @@ void Game::GameLoop() {
     
     isRunning = true;
     
+    float desiredFrameFreq = 1.0 / 30.0;
+    
     clock_t lastTime = clock();
     while (isRunning == true) {
         clock_t currentTime = clock();
         double delta = difftime(currentTime, lastTime) / CLOCKS_PER_SEC;
         lastTime = currentTime;
         
-        HandleInput();
-        Update(delta);
+        while (delta < desiredFrameFreq) {
+            delta += desiredFrameFreq;
+            
+            HandleInput();
+            Update(desiredFrameFreq);
+        }
+        
         Render();
     }
     
@@ -239,7 +246,8 @@ void Game::Update(float delta) {
     
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        (*iterator)->Update(delta, keyStates, objects);
+        GameObject *obj = *iterator;
+        obj->Update(delta, keyStates, objects);
     }
     
 }
@@ -250,7 +258,8 @@ void Game::Render() {
     
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        (*iterator)->Render(window);
+        GameObject *obj = *iterator;
+        obj->Render(window);
     }
     
     window->display();

@@ -10,7 +10,7 @@
 
 BallObject::BallObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
-    speed = 1000.0f;
+    speed = 10.0f;
     direction.x = speed;
     direction.y = speed;
     
@@ -22,10 +22,6 @@ BallObject::~BallObject() {
 
 void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) {
 
-    // update ball position according to direction
-    frame.x += direction.x * delta;
-    frame.y += direction.y * delta;
-    
     // limit movement to screen bounds
     if (frame.x < BACKGROUND_BORDER_OFFSET) {
         direction.x *= -1;
@@ -38,6 +34,19 @@ void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameOb
     }
     if (frame.y + frame.height > WINDOW_HEIGHT - BACKGROUND_BORDER_OFFSET) {
         direction.y *= -1;
+    }
+
+    // update ball position according to direction
+    frame.x += direction.x * delta;
+    frame.y += direction.y * delta;
+    
+    for (std::vector<GameObject *>::iterator iterator = objects.begin(); iterator != objects.end(); ++iterator) {
+        GameObject *obj = *iterator;
+        if (obj->tag == ObjectTagTarget || obj->tag == ObjectTagPaddle) {
+            if (IsRectangleIntersectingRectangle(frame, obj->frame)) {
+                // collision handling
+            }
+        }
     }
     
     // reposition

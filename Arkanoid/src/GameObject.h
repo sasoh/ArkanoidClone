@@ -15,6 +15,13 @@
 #include "Common.cpp"
 #include <SFML/Graphics.hpp>
 
+enum OBJECT_TAG {
+    ObjectTagSprite,
+    ObjectTagBall,
+    ObjectTagTarget,
+    ObjectTagPaddle
+};
+
 class GameObject {
 public:
     virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) = 0;
@@ -24,7 +31,7 @@ public:
     struct Rectangle frame;
     sf::Sprite *sprite;
     sf::Texture *texture;
-    bool isSolid;
+    enum OBJECT_TAG tag;
 private:
     
 };

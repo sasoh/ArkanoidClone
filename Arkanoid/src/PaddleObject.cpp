@@ -10,9 +10,9 @@
 
 PaddleObject::PaddleObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
-    isSolid = true;
-    speed = 10000.0f;
-
+    speed = 50.0f;
+    tag = ObjectTagPaddle;
+    
 }
 
 PaddleObject::~PaddleObject() {
@@ -36,7 +36,7 @@ void PaddleObject::Update(float delta, unsigned char keyStates, std::vector<Game
     if (frame.x < BACKGROUND_BORDER_OFFSET) {
         frame.x = BACKGROUND_BORDER_OFFSET;
     }
-    
+
     // update sprite position
     sprite->setPosition(frame.x, frame.y);
     

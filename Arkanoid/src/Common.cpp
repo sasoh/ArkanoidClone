@@ -46,24 +46,8 @@ inline bool IsRectangleIntersectingRectangle(struct Rectangle &rect1, struct Rec
 
     bool result = false;
     
-    struct Vector topLeftPoint;
-    topLeftPoint.x = rect2.x;
-    topLeftPoint.y = rect2.y;
-    
-    struct Vector topRightPoint;
-    topRightPoint.x = rect2.x + rect2.width;
-    topRightPoint.y = rect2.y;
-    
-    struct Vector bottomLeftPoint;
-    bottomLeftPoint.x = rect2.x;
-    bottomLeftPoint.y = rect2.y + rect2.height;
-    
-    struct Vector bottomRightPoint;
-    bottomRightPoint.x = rect2.x + rect2.width;
-    bottomRightPoint.y = rect2.y + rect2.height;
-    
-    if (IsPointInsideRectangle(rect1, topLeftPoint) == true || IsPointInsideRectangle(rect1, topRightPoint) == true ||
-        IsPointInsideRectangle(rect1, bottomLeftPoint) == true || IsPointInsideRectangle(rect1, bottomRightPoint) == true) {
+    if ((rect1.x < rect2.x + rect2.width) && (rect1.x + rect1.width > rect2.x) &&
+        (rect1.y < rect2.y + rect2.height) && (rect1.y + rect1.height > rect2.y)) {
         result = true;
     }
     

@@ -10,8 +10,8 @@
 
 TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice), SpriteObject(rect, filename) {
     
-    isSolid = true;
     isAlive = true;
+    tag = ObjectTagTarget;
     
 }
 

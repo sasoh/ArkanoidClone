@@ -10,8 +10,7 @@
 
 SpriteObject::SpriteObject(struct Rectangle &rect, char *filename) {
     
-    isSolid = false;
-    
+    tag = ObjectTagSprite;
     frame = rect;
     
     texture = new sf::Texture();
