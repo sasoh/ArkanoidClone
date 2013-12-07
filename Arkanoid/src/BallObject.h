@@ -15,9 +15,9 @@ class BallObject : public SpriteObject {
 public:
     BallObject(struct Rectangle &rect, char *filename);
     virtual ~BallObject();
-    virtual void Update(float delta, unsigned char keyStates);
+    virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects);
     virtual void Render(sf::RenderWindow *targetWindow);
-    
+    float speed;
 private:
     struct Vector direction;
 };

@@ -15,10 +15,10 @@ class TargetObject : public SpriteObject {
 public:
     TargetObject(struct Rectangle &rect, int targetPrice, char *filename);
     virtual ~TargetObject();
-    virtual void Update(float delta, unsigned char keyStates);
+    virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects);
     virtual void Render(sf::RenderWindow *targetWindow);
     int price;
-    
+    bool isAlive;
 private:
     
 };

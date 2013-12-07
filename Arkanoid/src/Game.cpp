@@ -54,10 +54,10 @@ bool Game::InitializeBoard() {
     bool result = true;
     
     struct Rectangle frame;
-    frame.top = 0.0f;
-    frame.left = 0.0f;
-    frame.bottom = 600.0;
-    frame.right = 800.0;
+    frame.x = 0.0f;
+    frame.y = 0.0f;
+    frame.width = WINDOW_WIDTH;
+    frame.height = WINDOW_HEIGHT;
     
     char filename[] = "background.png";
     SpriteObject *boardObject = new SpriteObject(frame, filename);
@@ -80,15 +80,14 @@ bool Game::InitializeTargets() {
     for (int i = 0; i < 5; ++i) {
         // prepare frame for object
         struct Rectangle frame;
-        frame.top = 50 + offset.y;
-        frame.left = i * (targetWidth + offset.x) + targetWidth;
-        frame.bottom = targetHeight;
-        frame.right = targetWidth;
+        frame.x = i * (targetWidth + offset.x) + targetWidth;
+        frame.y = 50 + offset.y;
+        frame.height = targetHeight;
+        frame.width = targetWidth;
         
         char filename[] = "target_80x15.png";
         TargetObject *target = new TargetObject(frame, 5, filename);
         objects.push_back(target);
-        targets.push_back(target); // will be used for faster lookup when performing collision detection
     }
     return result;
     
@@ -99,10 +98,10 @@ bool Game::InitializePaddle() {
     bool result = true;
     
     struct Rectangle frame;
-    frame.top = 550.0f;
-    frame.left = 300.0f;
-    frame.bottom = 15.0f;
-    frame.right = 100.0f;
+    frame.width = 100.0f;
+    frame.height = 15.0f;
+    frame.x = (WINDOW_WIDTH - frame.width) / 2;
+    frame.y = 550.0f;
     
     char filename[] = "paddle_100x15.png";
     PaddleObject *paddleObject = new PaddleObject(frame, filename);
@@ -118,10 +117,10 @@ bool Game::InitializeBall() {
     
     struct Rectangle frame;
     // random value?
-    frame.top = 400.0f;
-    frame.left = 100.0f;
-    frame.bottom = 30.0f;
-    frame.right = 30.0f;
+    frame.x = 300.0f;
+    frame.y = 250.0f;
+    frame.width = 30.0f;
+    frame.height = 30.0f;
     
     // direction? towards center of paddle?
     
@@ -159,9 +158,6 @@ void Game::Shutdown() {
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
         delete *iterator;
     }
-    
-    // targets is a convenience vector, nothing to release from there
-    targets.clear();
     
     // destroy SFML window
     delete window;
@@ -243,7 +239,7 @@ void Game::Update(float delta) {
     
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        (*iterator)->Update(delta, keyStates);
+        (*iterator)->Update(delta, keyStates, objects);
     }
     
 }

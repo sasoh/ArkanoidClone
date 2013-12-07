@@ -9,9 +9,7 @@
 #ifndef __Arkanoid__Game__
 #define __Arkanoid__Game__
 
-#include <vector>
 #include <time.h>
-#include <math.h>
 #include "GameObject.h"
 #include "SpriteObject.h"
 #include "BallObject.h"
@@ -41,7 +39,6 @@ private:
     bool isRunning;
     unsigned char keyStates;
     std::vector<GameObject *> objects;
-    std::vector<GameObject *> targets;
     sf::RenderWindow *window;
 };
 

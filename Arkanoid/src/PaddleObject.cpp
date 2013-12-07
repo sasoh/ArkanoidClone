@@ -9,34 +9,36 @@
 #include "PaddleObject.h"
 
 PaddleObject::PaddleObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
+    
+    isSolid = true;
     speed = 10000.0f;
+
 }
 
 PaddleObject::~PaddleObject() {
     
 }
 
-void PaddleObject::Update(float delta, unsigned char keyStates) {
+void PaddleObject::Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) {
     
     // update frame
     if (keyStates & KEYSTATE_LEFT) {
-        frame.left -= speed * delta;
+        frame.x -= speed * delta;
     }
     if (keyStates & KEYSTATE_RIGHT) {
-        frame.left += speed * delta;
+        frame.x += speed * delta;
     }
     
     // limit paddle movement to screen
-    float backgroundBorderOffset = 10.0f;
-    if (frame.left + frame.right > WINDOW_WIDTH - backgroundBorderOffset) {
-        frame.left = WINDOW_WIDTH - frame.right - backgroundBorderOffset;
+    if (frame.x + frame.width > WINDOW_WIDTH - BACKGROUND_BORDER_OFFSET) {
+        frame.x = WINDOW_WIDTH - frame.width - BACKGROUND_BORDER_OFFSET;
     }
-    if (frame.left < backgroundBorderOffset) {
-        frame.left = backgroundBorderOffset;
+    if (frame.x < BACKGROUND_BORDER_OFFSET) {
+        frame.x = BACKGROUND_BORDER_OFFSET;
     }
     
     // update sprite position
-    sprite->setPosition(frame.left, frame.top);
+    sprite->setPosition(frame.x, frame.y);
     
 }
 

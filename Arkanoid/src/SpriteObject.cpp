@@ -10,14 +10,16 @@
 
 SpriteObject::SpriteObject(struct Rectangle &rect, char *filename) {
     
+    isSolid = false;
+    
     frame = rect;
     
     texture = new sf::Texture();
     if (texture->loadFromFile(filename) == true) {
         sprite = new sf::Sprite();
         sprite->setTexture(*texture);
-        sprite->setTextureRect(sf::IntRect(0, 0, rect.right, rect.bottom));
-        sprite->setPosition(rect.left, rect.top);
+        sprite->setTextureRect(sf::IntRect(0, 0, rect.width, rect.height));
+        sprite->setPosition(rect.x, rect.y);
         sprite->setColor(sf::Color(255, 255, 255, 255));
     } else {
         sprite = NULL;
@@ -37,7 +39,7 @@ SpriteObject::~SpriteObject() {
     
 }
 
-void SpriteObject::Update(float delta, unsigned char keyStates) {
+void SpriteObject::Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) {
 
     // nothing
     

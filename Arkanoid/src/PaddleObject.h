@@ -15,7 +15,7 @@ class PaddleObject : public SpriteObject {
 public:
     PaddleObject(struct Rectangle &rect, char *filename);
     virtual ~PaddleObject();
-    virtual void Update(float delta, unsigned char keyStates);
+    virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects);
     virtual void Render(sf::RenderWindow *targetWindow);
     
 private:

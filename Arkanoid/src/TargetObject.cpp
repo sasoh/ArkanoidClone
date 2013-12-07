@@ -10,13 +10,16 @@
 
 TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice), SpriteObject(rect, filename) {
     
+    isSolid = true;
+    isAlive = true;
+    
 }
 
 TargetObject::~TargetObject() {
     
 }
 
-void TargetObject::Update(float delta, unsigned char keyStates) {
+void TargetObject::Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) {
 
     // nothing yet
     
@@ -24,6 +27,8 @@ void TargetObject::Update(float delta, unsigned char keyStates) {
 
 void TargetObject::Render(sf::RenderWindow *targetWindow) {
     
-    SpriteObject::Render(targetWindow);
+    if (isAlive == true) {
+        SpriteObject::Render(targetWindow);
+    }
     
 }
