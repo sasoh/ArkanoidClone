@@ -9,14 +9,13 @@
 #ifndef __Arkanoid__SpriteObject__
 #define __Arkanoid__SpriteObject__
 
-#include <iostream>
 #include "GameObject.h"
 
 class SpriteObject : public GameObject {
 public:
     SpriteObject(struct Rectangle &rect, char *filename);
     virtual ~SpriteObject();
-    virtual void Update(float delta);
+    virtual void Update(float delta, unsigned char keyStates);
     virtual void Render(sf::RenderWindow *targetWindow);
     
 private:

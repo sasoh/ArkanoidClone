@@ -42,7 +42,7 @@ bool Game::InitializeSFML() {
    
     bool result = true;
     
-    window = new sf::RenderWindow(sf::VideoMode(800, 600), "Arkanoid clone");
+    window = new sf::RenderWindow(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Arkanoid clone", sf::Style::Close);
     result = window->isOpen();
     
     return result;
@@ -88,6 +88,7 @@ bool Game::InitializeTargets() {
         char filename[] = "target_80x15.png";
         TargetObject *target = new TargetObject(frame, 5, filename);
         objects.push_back(target);
+        targets.push_back(target); // will be used for faster lookup when performing collision detection
     }
     return result;
     
@@ -98,7 +99,7 @@ bool Game::InitializePaddle() {
     bool result = true;
     
     struct Rectangle frame;
-    frame.top = 500.0f;
+    frame.top = 550.0f;
     frame.left = 300.0f;
     frame.bottom = 15.0f;
     frame.right = 100.0f;
@@ -142,25 +143,9 @@ void Game::GameLoop() {
         double delta = difftime(currentTime, lastTime) / CLOCKS_PER_SEC;
         lastTime = currentTime;
         
-        // capture window events
-        sf::Event event;
-        while (window->pollEvent(event)) {
-            // Close window : exit
-            if (event.type == sf::Event::Closed) {
-                window->close();
-                isRunning = false;
-            }
-        }
-        
-        
-        window->clear();
-        
-        // systems update
         HandleInput();
         Update(delta);
         Render();
-        
-        window->display();
     }
     
     Shutdown();
@@ -168,8 +153,6 @@ void Game::GameLoop() {
 }
 
 void Game::Shutdown() {
-    
-    // clear up
     
     // clear all objects from memory
     std::vector<GameObject *>::iterator iterator;
@@ -187,25 +170,93 @@ void Game::Shutdown() {
 
 void Game::HandleInput() {
     
-    // stop loop
-//    isRunning = false;
+    keyStates = 0; // reset states for current frame
+    HandleWindowInput();
+    HandleKeyboardInput();
+    HandleJoystickInput();
 
+}
+
+void Game::HandleWindowInput() {
+
+    // SFML window message handling
+    sf::Event event;
+    while (window->pollEvent(event)) {
+        // Close window : exit
+        if (event.type == sf::Event::Closed) {
+            window->close();
+            isRunning = false;
+        }
+    }
+    
+}
+
+void Game::HandleKeyboardInput() {
+    
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) == true) {
+        keyStates |= KEYSTATE_LEFT;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) == true) {
+        keyStates |= KEYSTATE_RIGHT;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) == true) {
+        keyStates |= KEYSTATE_LAUNCH;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) == true) {
+        // this kills the app
+        isRunning = false;
+    }
+    
+}
+
+void Game::HandleJoystickInput() {
+ 
+    unsigned int joystickId = 0; // default
+    if (sf::Joystick::isConnected(joystickId) == true) {
+        float x = sf::Joystick::getAxisPosition(joystickId, sf::Joystick::Axis::X);
+        // limit value to [-1; 1] range
+        x = x / 100;
+        
+        float deadZone = 0.15; // just fine on my xbox controller
+        if (fabsf(x) < deadZone) {
+            x = 0.0f;
+        }
+        
+        // analog input for a future release?
+        
+        if (x > 0.0f) {
+            keyStates |= KEYSTATE_RIGHT;
+        }
+        if (x < 0.0f) {
+            keyStates |= KEYSTATE_LEFT;
+        }
+        
+        bool firstButtonPressed = sf::Joystick::isButtonPressed(joystickId, 0);
+        if (firstButtonPressed == true) {
+            keyStates |= KEYSTATE_LAUNCH;
+        }
+    }
+    
 }
 
 void Game::Update(float delta) {
     
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        (*iterator)->Update(delta);
+        (*iterator)->Update(delta, keyStates);
     }
     
 }
 
 void Game::Render() {
     
+    window->clear();
+    
     std::vector<GameObject *>::iterator iterator;
     for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
         (*iterator)->Render(window);
     }
-
+    
+    window->display();
+    
 }

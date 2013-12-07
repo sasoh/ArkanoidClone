@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 -. All rights reserved.
 //
 
-#include <iostream>
 #include "Game.h"
 
 int main(int argc, const char * argv[]) {

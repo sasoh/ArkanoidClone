@@ -19,7 +19,7 @@ BallObject::~BallObject() {
     
 }
 
-void BallObject::Update(float delta) {
+void BallObject::Update(float delta, unsigned char keyStates) {
 
     // update ball position according to direction
     frame.left += direction.x * delta;

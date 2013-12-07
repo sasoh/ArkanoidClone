@@ -15,13 +15,16 @@
 
 class GameObject {
 public:
-    virtual void Update(float delta) = 0;
+    virtual void Update(float delta, unsigned char keyStates) = 0;
     virtual void Render(sf::RenderWindow *targetWindow) = 0;
     virtual ~GameObject() {}
     
     struct Rectangle frame;
     sf::Sprite *sprite;
     sf::Texture *texture;
+    
+private:
+    
 };
 
 #endif /* defined(__Arkanoid__GameObject__) */

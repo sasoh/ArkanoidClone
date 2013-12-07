@@ -9,8 +9,6 @@
 #ifndef __Arkanoid__Common__
 #define __Arkanoid__Common__
 
-#include <iostream>
-
 struct Vector {
     float x;
     float y;
@@ -22,6 +20,14 @@ struct Rectangle {
     float bottom;
     float right;
 };
+
+const int WINDOW_WIDTH  = 800;
+const int WINDOW_HEIGHT = 600;
+
+const unsigned char KEYSTATE_LEFT   = 1 << 0;
+const unsigned char KEYSTATE_RIGHT  = 1 << 1;
+const unsigned char KEYSTATE_LAUNCH = 1 << 2;
+
 
 inline bool IsPointInsideRectangle(struct Rectangle &rect, Vector &point) {
 

@@ -9,9 +9,9 @@
 #ifndef __Arkanoid__Game__
 #define __Arkanoid__Game__
 
-#include <iostream>
 #include <vector>
 #include <time.h>
+#include <math.h>
 #include "GameObject.h"
 #include "SpriteObject.h"
 #include "BallObject.h"
@@ -33,9 +33,13 @@ private:
     void GameLoop();
     void Shutdown();
     void HandleInput();
+    void HandleWindowInput();
+    void HandleKeyboardInput();
+    void HandleJoystickInput();
     void Update(float delta);
     void Render();
     bool isRunning;
+    unsigned char keyStates;
     std::vector<GameObject *> objects;
     std::vector<GameObject *> targets;
     sf::RenderWindow *window;

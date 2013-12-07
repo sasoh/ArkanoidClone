@@ -9,17 +9,17 @@
 #ifndef __Arkanoid__PaddleObject__
 #define __Arkanoid__PaddleObject__
 
-#include <iostream>
 #include "SpriteObject.h"
 
 class PaddleObject : public SpriteObject {
 public:
     PaddleObject(struct Rectangle &rect, char *filename);
     virtual ~PaddleObject();
-    virtual void Update(float delta);
+    virtual void Update(float delta, unsigned char keyStates);
     virtual void Render(sf::RenderWindow *targetWindow);
     
-    struct Vector direction;
+private:
+    float speed;
 };
 
 #endif /* defined(__Arkanoid__PaddleObject__) */

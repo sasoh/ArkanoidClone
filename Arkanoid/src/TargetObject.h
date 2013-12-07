@@ -9,17 +9,18 @@
 #ifndef __Arkanoid__TargetObject__
 #define __Arkanoid__TargetObject__
 
-#include <iostream>
 #include "SpriteObject.h"
 
 class TargetObject : public SpriteObject {
 public:
     TargetObject(struct Rectangle &rect, int targetPrice, char *filename);
     virtual ~TargetObject();
-    virtual void Update(float delta);
+    virtual void Update(float delta, unsigned char keyStates);
     virtual void Render(sf::RenderWindow *targetWindow);
-    
     int price;
+    
+private:
+    
 };
 
 #endif /* defined(__Arkanoid__TargetObject__) */

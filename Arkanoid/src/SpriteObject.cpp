@@ -37,7 +37,7 @@ SpriteObject::~SpriteObject() {
     
 }
 
-void SpriteObject::Update(float delta) {
+void SpriteObject::Update(float delta, unsigned char keyStates) {
 
     // nothing
     

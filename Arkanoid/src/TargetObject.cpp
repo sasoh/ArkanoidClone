@@ -16,7 +16,7 @@ TargetObject::~TargetObject() {
     
 }
 
-void TargetObject::Update(float delta) {
+void TargetObject::Update(float delta, unsigned char keyStates) {
 
     // nothing yet
     
