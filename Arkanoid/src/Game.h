@@ -37,6 +37,7 @@ private:
     void Update(float delta);
     void Render();
     bool isRunning;
+    bool hasStarted;
     unsigned char keyStates;
     std::vector<GameObject *> objects;
     sf::RenderWindow *window;

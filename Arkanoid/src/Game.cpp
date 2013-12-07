@@ -135,6 +135,7 @@ bool Game::InitializeBall() {
 void Game::GameLoop() {
     
     isRunning = true;
+    hasStarted = false;
     
     float desiredFrameFreq = 1.0 / 30.0;
     
@@ -177,7 +178,11 @@ void Game::HandleInput() {
     HandleWindowInput();
     HandleKeyboardInput();
     HandleJoystickInput();
-
+    
+    if (keyStates != 0) {
+        hasStarted = true;
+    }
+    
 }
 
 void Game::HandleWindowInput() {
@@ -244,10 +249,12 @@ void Game::HandleJoystickInput() {
 
 void Game::Update(float delta) {
     
-    std::vector<GameObject *>::iterator iterator;
-    for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
-        GameObject *obj = *iterator;
-        obj->Update(delta, keyStates, objects);
+    if (hasStarted == true) {
+        std::vector<GameObject *>::iterator iterator;
+        for (iterator = objects.begin(); iterator != objects.end(); ++iterator) {
+            GameObject *obj = *iterator;
+            obj->Update(delta, keyStates, objects);
+        }
     }
     
 }
