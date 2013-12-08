@@ -45,6 +45,34 @@ void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameOb
         if (obj->tag == ObjectTagTarget || obj->tag == ObjectTagPaddle) {
             if (IsRectangleIntersectingRectangle(frame, obj->frame)) {
                 // collision handling
+                float collisionLeft = (frame.x + frame.width) - obj->frame.x;
+                float collisionRight = frame.x - (obj->frame.x + obj->frame.width);
+                float collisionTop = (frame.y + frame.height) - obj->frame.y;
+                float collisionBottom = frame.y - (obj->frame.y + obj->frame.height);
+
+                // collisions would usually occur in very small amounts
+                // reverse direction if needed (prevents bug when colliding with moving paddle)
+                float cutoff = 1.0f;
+                if (fabsf(collisionLeft) < cutoff) {
+                    if (direction.x > 0.0) {
+                        direction.x *= -1;
+                    }
+                }
+                if (fabsf(collisionRight) < cutoff) {
+                    if (direction.x < 0.0) {
+                        direction.x *= -1;
+                    }
+                }
+                if (fabsf(collisionTop) < cutoff) {
+                    if (direction.y > 0.0) {
+                        direction.y *= -1;
+                    }
+                }
+                if (fabsf(collisionBottom) < cutoff) {
+                    if (direction.y < 0.0) {
+                        direction.y *= -1;
+                    }
+                }
             }
         }
     }
