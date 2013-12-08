@@ -77,17 +77,19 @@ bool Game::InitializeTargets() {
     float targetHeight = 15.0f;
     float targetWidth = 80.0f;
     
-    for (int i = 0; i < 5; ++i) {
-        // prepare frame for object
-        struct Rectangle frame;
-        frame.x = i * (targetWidth + offset.x) + targetWidth;
-        frame.y = 50 + offset.y;
-        frame.height = targetHeight;
-        frame.width = targetWidth;
-        
-        char filename[] = "target_80x15.png";
-        TargetObject *target = new TargetObject(frame, 5, filename);
-        objects.push_back(target);
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 7; ++j) {
+            // prepare frame for object
+            struct Rectangle frame;
+            frame.x = j * (targetWidth + offset.x) + targetWidth;
+            frame.y = 50 + offset.y + (i * targetHeight * 2);
+            frame.height = targetHeight;
+            frame.width = targetWidth;
+            
+            char filename[] = "target_80x15.png";
+            TargetObject *target = new TargetObject(frame, 5, filename);
+            objects.push_back(target);
+        }
     }
     return result;
     
