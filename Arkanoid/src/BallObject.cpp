@@ -11,8 +11,8 @@
 BallObject::BallObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
     speed = 15.0f;
-    direction.x = speed;
-    direction.y = speed;
+    direction.x = speed - (speed / 4);
+    direction.y = speed + (speed / 4);
     
 }
 
