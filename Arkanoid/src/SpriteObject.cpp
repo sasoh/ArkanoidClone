@@ -51,3 +51,15 @@ void SpriteObject::Render(sf::RenderWindow *targetWindow) {
     }
 
 }
+
+void SpriteObject::SetState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
+    
+}
+
+void SpriteObject::QueryState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
+    
+}

@@ -47,3 +47,15 @@ void PaddleObject::Render(sf::RenderWindow *targetWindow) {
     SpriteObject::Render(targetWindow);
     
 }
+
+void PaddleObject::SetState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
+    
+}
+
+void PaddleObject::QueryState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
+    
+}

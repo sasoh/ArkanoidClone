@@ -22,11 +22,24 @@ enum OBJECT_TAG {
     ObjectTagPaddle
 };
 
+enum OBJECT_STATES {
+    ObjectStatesAlive,
+    ObjectStatesDead
+};
+
+struct OBJECT_MESSAGE {
+    int messageCode;
+    enum OBJECT_STATES state;
+    // other data
+};
+
 class GameObject {
 public:
     virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects) = 0;
     virtual void Render(sf::RenderWindow *targetWindow) = 0;
     virtual ~GameObject() {}
+    virtual void SetState(struct OBJECT_MESSAGE &msg) = 0;
+    virtual void QueryState(struct OBJECT_MESSAGE &msg) = 0;
     
     struct Rectangle frame;
     sf::Sprite *sprite;

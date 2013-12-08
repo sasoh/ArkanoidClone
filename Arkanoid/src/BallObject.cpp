@@ -10,7 +10,7 @@
 
 BallObject::BallObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
-    speed = 10.0f;
+    speed = 15.0f;
     direction.x = speed;
     direction.y = speed;
     
@@ -43,7 +43,16 @@ void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameOb
     for (std::vector<GameObject *>::iterator iterator = objects.begin(); iterator != objects.end(); ++iterator) {
         GameObject *obj = *iterator;
         if (obj->tag == ObjectTagTarget || obj->tag == ObjectTagPaddle) {
-            if (IsRectangleIntersectingRectangle(frame, obj->frame)) {
+            // skip killed paddle objects
+            bool shouldQuery = true;
+            if (obj->tag == ObjectTagTarget) {
+                struct OBJECT_MESSAGE msg;
+                obj->QueryState(msg);
+                if (msg.state == ObjectStatesDead) {
+                    shouldQuery = false;
+                }
+            }
+            if (shouldQuery == true && IsRectangleIntersectingRectangle(frame, obj->frame)) {
                 // collision handling
                 float collisionLeft = (frame.x + frame.width) - obj->frame.x;
                 float collisionRight = frame.x - (obj->frame.x + obj->frame.width);
@@ -73,6 +82,14 @@ void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameOb
                         direction.y *= -1;
                     }
                 }
+                
+                // send kill message to target objects
+                if (obj->tag == ObjectTagTarget) {
+                    struct OBJECT_MESSAGE msg;
+                    msg.state = ObjectStatesDead;
+                    obj->SetState(msg);
+                    // get score?
+                }
             }
         }
     }
@@ -85,5 +102,17 @@ void BallObject::Update(float delta, unsigned char keyStates, std::vector<GameOb
 void BallObject::Render(sf::RenderWindow *targetWindow) {
 
     SpriteObject::Render(targetWindow);
+    
+}
+
+void BallObject::SetState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
+    
+}
+
+void BallObject::QueryState(struct OBJECT_MESSAGE &msg) {
+    
+    // nothing
     
 }

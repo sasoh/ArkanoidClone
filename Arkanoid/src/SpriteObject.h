@@ -17,6 +17,8 @@ public:
     virtual ~SpriteObject();
     virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects);
     virtual void Render(sf::RenderWindow *targetWindow);
+    virtual void SetState(struct OBJECT_MESSAGE &msg);
+    virtual void QueryState(struct OBJECT_MESSAGE &msg);
     
 private:
     

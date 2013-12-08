@@ -17,8 +17,10 @@ public:
     virtual ~TargetObject();
     virtual void Update(float delta, unsigned char keyStates, std::vector<GameObject *> &objects);
     virtual void Render(sf::RenderWindow *targetWindow);
+    virtual void SetState(struct OBJECT_MESSAGE &msg);
+    virtual void QueryState(struct OBJECT_MESSAGE &msg);
+    enum OBJECT_STATES currentState;
     int price;
-    bool isAlive;
 private:
     
 };

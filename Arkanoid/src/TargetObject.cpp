@@ -10,8 +10,8 @@
 
 TargetObject::TargetObject(struct Rectangle &rect, int targetPrice, char *filename): price(targetPrice), SpriteObject(rect, filename) {
     
-    isAlive = true;
     tag = ObjectTagTarget;
+    currentState = ObjectStatesAlive;
     
 }
 
@@ -27,8 +27,19 @@ void TargetObject::Update(float delta, unsigned char keyStates, std::vector<Game
 
 void TargetObject::Render(sf::RenderWindow *targetWindow) {
     
-    if (isAlive == true) {
+    if (currentState == ObjectStatesAlive) {
         SpriteObject::Render(targetWindow);
     }
+    
+}
+
+void TargetObject::SetState(struct OBJECT_MESSAGE &msg) {
+ 
+    currentState = msg.state;
+}
+
+void TargetObject::QueryState(struct OBJECT_MESSAGE &msg) {
+    
+    msg.state = currentState;
     
 }
