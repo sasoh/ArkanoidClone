@@ -10,7 +10,7 @@
 
 PaddleObject::PaddleObject(struct Rectangle &rect, char *filename): SpriteObject(rect, filename) {
     
-    speed = 50.0f;
+    speed = 25.0f;
     tag = ObjectTagPaddle;
     
 }

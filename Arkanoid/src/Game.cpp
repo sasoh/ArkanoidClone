@@ -139,7 +139,7 @@ void Game::GameLoop() {
     isRunning = true;
     hasStarted = false;
     
-    float desiredFrameFreq = 1.0 / 30.0;
+    float desiredFrameFreq = 1.0 / 120.0;
     
     clock_t lastTime = clock();
     while (isRunning == true) {

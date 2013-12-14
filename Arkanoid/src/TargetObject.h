@@ -19,7 +19,7 @@ public:
     virtual void Render(sf::RenderWindow *targetWindow);
     virtual void SetState(struct OBJECT_MESSAGE &msg);
     virtual void QueryState(struct OBJECT_MESSAGE &msg);
-    enum OBJECT_STATES currentState;
+    
     int price;
 private:
     

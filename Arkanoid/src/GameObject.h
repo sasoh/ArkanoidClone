@@ -45,6 +45,7 @@ public:
     sf::Sprite *sprite;
     sf::Texture *texture;
     enum OBJECT_TAG tag;
+    enum OBJECT_STATES currentState;
 private:
     
 };
